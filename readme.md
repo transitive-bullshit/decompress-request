@@ -18,34 +18,21 @@ npm install --save decompress-request
 
 ```js
 const http = require('http')
+const raw = require('raw-body')
 const decompressRequest = require('decompress-request')
 
-http.get('https://saasify.sh', (request) => {
-	request = decompressRequest(request)
-})
-const http = require('http')
-
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
   req = decompressRequest(req)
 
   // The request stream is now guaranteed to be inflated / decompressed.
   // You can use it as you would in any http handler.
+
+  // rawBody is an uncompressed Buffer containing the raw request body
+  const rawBody = await raw(req, opts)
+
+  // body would contain the request body as a JSON object assuming it was application/json
+  const body = JSON.parse(rawBody.toString('utf8'))
 })
-
-server.listen(3000)
-```
-
-#### Micro
-
-```js
-const http = require('http')
-const micro = require('micro')
-const decompressRequest = require('decompress-request')
-
-const server = new http.Server(micro(async (req, res) => {
-  const json = await micro.json(req, { limit: '100mb' })
-  micro.send(res, 200, json)
-}))
 
 server.listen(3000)
 ```
@@ -60,11 +47,12 @@ Decompresses an incoming HTTP request body stream if needed.
 
 Type: `function (request): IncomingMessage`
 
--   `request` **IncomingMessage** 
+-   `request` **IncomingMessage**
 
 ## Related
 
 -   [decompress-response](https://github.com/sindresorhus/decompress-response) - Same as this module but for handling http responses.
+-   [inflation](https://github.com/stream-utils/inflation) - Same as this module but doesn't handle Brotli.
 
 ## License
 
