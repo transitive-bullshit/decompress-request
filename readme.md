@@ -2,7 +2,7 @@
 
 > Decompress an incoming HTTP request if needed.
 
-[![NPM](https://img.shields.io/npm/v/decompress-request.svg)](https://www.npmjs.com/package/decompress-request) [![Build Status](https://travis-ci.com/saasify-sh/decompress-request.svg?branch=master)](https://travis-ci.com/saasify-sh/decompress-request) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/decompress-request.svg)](https://www.npmjs.com/package/decompress-request) [![Build Status](https://travis-ci.com/transitive-bullshit/decompress-request.svg?branch=master)](https://travis-ci.com/transitive-bullshit/decompress-request) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 Decompresses an incoming http request if it's gzipped, deflated or compressed with Brotli, otherwise just passes it through.
 
@@ -54,4 +54,4 @@ Type: `function (request): IncomingMessage`
 
 ## License
 
-MIT © [Saasify](https://saasify.sh)
+MIT © [Travis Fischer](https://transitivebullsh.it)
