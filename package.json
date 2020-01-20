@@ -1,6 +1,6 @@
 {
   "name": "decompress-request",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Decompress an incoming HTTP request if needed.",
   "author": "Travis Fischer <travis@transitivebullsh.it>",
   "repository": "transitive-bullshit/decompress-request",

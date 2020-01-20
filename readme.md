@@ -14,8 +14,6 @@ npm install --save decompress-request
 
 ## Usage
 
-#### http.createServer
-
 ```js
 const http = require('http')
 const raw = require('raw-body')
